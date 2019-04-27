@@ -1,0 +1,12 @@
+#!/bin/bash
+sudo apt-get install openvpn
+mkdir /home/$USER/.GradProject
+mv dbth.py servers ui.py /home/$USER/.GradProject
+cd /home/$USER
+sudo git clone https://github.com/OpenVPN/easy-rsa.git
+cd ~/easy-rsa/easyrsa3
+sudo ./easyrsa init-pki
+sudo chown -R $USER ~/easy-rsa/easyrsa3/pki
+cd /home/$USER/.GradProject
+printf "client\ntls-client\nproto tcp\nremote 194.135.92.56 1194\ncipher server1\ncipher AES-128-CBC\ndev tun\nnobind\nremote-cert-tls server\nca ca.crt\ncert client.crt\nkey client.key\nremote-cert-tls server\npersist-key\npersist-tun\nresolv-retry infinite" > client.conf
+printf "Your foulder has been setup in /home/username/.GradProject"
