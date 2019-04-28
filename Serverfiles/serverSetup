@@ -1,6 +1,7 @@
 #!/bin/bash
 useradd client
 passwd client
+mv dbth.py sui.py si.py Rail.py serverslist gateways /root
 apt-get install rssh
 chsh -s /usr/bin/rssh client
 apt-get install openvpn
