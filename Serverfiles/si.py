@@ -15,9 +15,7 @@ if os.path.exists("/root/pki"):
     print("print pki exists")
 
 else:
-    bashCommand = "/root/setup-script" # setup server
-    process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
-    output, error = process.communicate()
+    print("Run serverSetup first")
 
 try:
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
